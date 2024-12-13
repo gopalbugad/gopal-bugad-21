@@ -4,9 +4,9 @@ WORKDIR /app
 
 COPY requirements.txt .
 
-COPY inventory_app/* .
-
 RUN pip install -r requirements.txt
+
+COPY inventory_app/ .
 
 EXPOSE 8082
 
