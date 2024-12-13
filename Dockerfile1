@@ -6,8 +6,8 @@ COPY requirements.txt .
 
 RUN pip install -r requirements.txt
 
-COPY inventory_app/ .
+COPY order_service /app
 
 EXPOSE 8082
 
-CMD ["python", "inventory_app.py"]
+CMD ["python", "order_app.py"]
