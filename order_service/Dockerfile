@@ -6,7 +6,7 @@ COPY requirements.txt .
 
 RUN pip install -r requirements.txt
 
-COPY order_service /app
+COPY . /app
 
 EXPOSE 8083
 
