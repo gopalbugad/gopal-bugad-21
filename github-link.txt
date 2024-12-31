@@ -1,4 +1,0 @@
-Order Service - https://hub.docker.com/repository/docker/gopalbugad/order/general 
-              - docker pull gopalbugad/order
-Inventory Service - https://hub.docker.com/repository/docker/gopalbugad/inventory/general
-                  - docker pull gopalbugad/inventory
