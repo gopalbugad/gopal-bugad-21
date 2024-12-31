@@ -1,0 +1,12 @@
+# Created the custome network using docker command
+docker network create my_network 
+
+
+# Pulled the inventory docker image from docker hub and ran it on 8082 port and attached the custome network
+docker pull gopalbugad/inventory
+docker run -d --name inventory-service --network my_network -p 8082:8082 gopalbugad/inventory
+
+
+#Pulled the order docker image from docker hub and ran it on 8083 port and attached the custome network along with environment URL
+docker pull gopalbugad/order
+docker run -d --name order-service --network my_network -p 8083:8083 -e INVENTORY_SERVICE_URL=http://inventory-service:8082 gopalbugad/order
