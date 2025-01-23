@@ -1,0 +1,11 @@
+# To start/run containers for those services which is mentioned in docker-compose.yaml file
+docker-compose up -d
+
+# To list containers created from docker-compose.yaml file
+docker-compose ps
+
+# To see the logs of running containers created from docker-compose.yaml file
+docker-compose logs
+
+# I have used docker images here which I already stored in my docker hub repos. That images were built in session 1.
+

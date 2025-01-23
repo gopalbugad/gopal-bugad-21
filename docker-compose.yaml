@@ -1,0 +1,26 @@
+name: coffe_shop_app
+
+services:
+  order:
+    image: gopalbugad/order
+    container_name: order-service
+    environment:
+      INVENTORY_SERVICE_URL: http://inventory-service:8082 
+    ports:
+      - "8083:8083"
+    depends_on:
+      - inventory
+    networks:
+      - my_network
+
+  inventory:
+    image: gopalbugad/inventory
+    container_name: inventory-service
+    ports:
+      - "8082:8082"
+    networks:
+      - my_network
+
+networks:
+  my_network:
+    driver: bridge
