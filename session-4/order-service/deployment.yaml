@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-deployment
+  labels:
+    app: order
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: order
+    spec:
+      containers:
+      - name: order-container
+        image: gopalbugad/order:latest
+  selector:
+    matchLabels:
+      app: order

@@ -1,0 +1,20 @@
+apiVersion: v1/apps
+kind: Deployment
+metadata:
+  name: inventory-deployment
+  labels:
+    app: inventory
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: inventory
+    spec:
+      containers:
+      - name: inventory-container
+        image: gopalbugad/inventory:latest
+  selector:
+    matchLabels:
+      app: inventory
+      
