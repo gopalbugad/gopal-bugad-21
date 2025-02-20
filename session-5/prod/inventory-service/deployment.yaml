@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prod-inventory-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: inventory
+    spec:
+      containers:
+      - name: inventory
+        image: gopalbugad/inventory:latest
+        env:
+        - name: ESPRESSO_SHOT_QUANTITY
+          valueFrom:
+            configMapKeyRef:
+              name: prod-inv-config
+              key: ESPRESSO_SHOT_QUANTITY
+        - name: MILK_FOAM_QUANTITY
+          valueFrom:
+            configMapKeyRef:
+              name: prod-inv-config
+              key: MILK_FOAM_QUANTITY
+  selector:
+    matchLabels:
+      app: inventory

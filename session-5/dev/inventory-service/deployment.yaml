@@ -1,11 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: inventory
+  name: dev-inventory-deployment
+  labels:
+    app: inventory
 spec:
-  selector:
-    matchLabels:
-      app: inventory
+  replicas: 1
   template:
     metadata:
       labels:
@@ -22,8 +22,11 @@ spec:
             configMapKeyRef:
               name: dev-inv-cm
               key: ESPRESSO_SHOT_QUANTITY
-        - name: MILK_QUANTITY
+        - name: MILK_FOAM_QUANTITY
           valueFrom:
             configMapKeyRef:
               name: dev-inv-cm
-              key: MILK_QUANTITY
+              key: MILK_FOAM_QUANTITY
+  selector:
+    matchLabels:
+      app: inventory

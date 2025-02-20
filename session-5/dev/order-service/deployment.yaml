@@ -1,22 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: order
+  name: dev-order-deployment
+  labels:
+    app: order
 spec:
-  selector:
-    matchLabels:
-      app: myapp
+  replicas: 1
   template:
     metadata:
       labels:
-        app: myapp
+        app: order
     spec:
       containers:
-      - name: myapp
-        image: <Image>
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
-        ports:
-        - containerPort: <Port>
+      - name: order
+        image: gopalbugad/order:latest
+        env:
+        - name: INVENTORY_SERVICE_URL
+          valueFrom:
+            configMapKeyRef:
+              name: dev-ord-config
+              key: INVENTORY_SERVICE_URL
+  selector:
+    matchLabels:
+      app: order
