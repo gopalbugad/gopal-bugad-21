@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: dev-configmap
+data:
+  ESPRESSO_SHOT_QUANTITY: "10000"
+  MILK_QUANTITY: "60000"
