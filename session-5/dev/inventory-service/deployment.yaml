@@ -16,14 +16,14 @@ spec:
         image: gopalbugad/inventory:latest
         ports:
         - containerPort: 8082
-      env:
-      - name: ESPRESSO_SHOT_QUANTITY
-        valueFrom: 
-          ConfigMapKeyRef:
-            name: dev-configmap
-            key: ESPRESSO_SHOT_QUANTITY
-      - name: MILK_QUANTITY
-        valueFrom:
-          ConfigMapKeyRef:
-            name: dev-configmap
-            key: MILK_QUANTITY
+        env:
+        - name: ESPRESSO_SHOT_QUANTITY
+          valueFrom: 
+            configMapKeyRef:
+              name: dev-inv-cm
+              key: ESPRESSO_SHOT_QUANTITY
+        - name: MILK_QUANTITY
+          valueFrom:
+            configMapKeyRef:
+              name: dev-inv-cm
+              key: MILK_QUANTITY
