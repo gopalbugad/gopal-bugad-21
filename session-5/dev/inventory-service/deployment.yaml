@@ -20,7 +20,7 @@ spec:
         - name: ESPRESSO_SHOT_QUANTITY
           valueFrom: 
             configMapKeyRef:
-              name: dev-inv-cm
+              name: dev-inv-config
               key: ESPRESSO_SHOT_QUANTITY
         - name: MILK_FOAM_QUANTITY
           valueFrom:
