@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: prod-ord-config
 data:
-  INVENTORY_SERVICE_URL: "http://prod-inventory-service.svc.cluster.local:8082 "
+  INVENTORY_SERVICE_URL: "http://prod-inventory-service:8082"

@@ -12,6 +12,8 @@ spec:
       containers:
       - name: order
         image: gopalbugad/order:latest
+        ports:
+        - containerPort: 8083
         env:
         - name: INVENTORY_SERVICE_URL
           valueFrom:
