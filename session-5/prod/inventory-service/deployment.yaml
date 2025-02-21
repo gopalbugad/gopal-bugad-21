@@ -12,6 +12,8 @@ spec:
       containers:
       - name: inventory
         image: gopalbugad/inventory:latest
+        ports:
+        - containerPort: 8082
         env:
         - name: ESPRESSO_SHOT_QUANTITY
           valueFrom:
