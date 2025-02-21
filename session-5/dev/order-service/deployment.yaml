@@ -15,7 +15,7 @@ spec:
       - name: order
         image: gopalbugad/order:latest
         env:
-        - name: INVENTORY_SERVICE_URL
+        - name: INVENTORY_SERVICE_NAME
           valueFrom:
             configMapKeyRef:
               name: dev-ord-config

@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: dev-ord-config
 data:
-  INVENTORY_SERVICE_URL: "http://dev-inventory-service.svc.cluster.local:8082"
+  INVENTORY_SERVICE_URL: "http://dev-inventory-service:8082"

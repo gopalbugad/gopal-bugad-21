@@ -4,7 +4,7 @@ metadata:
   name: dev-order-service
 spec:
   selector:
-    app: myapp
+    app: order
   type: NodePort
   ports:
   - port: 8083
