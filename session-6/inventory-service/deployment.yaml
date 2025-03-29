@@ -18,12 +18,12 @@ spec:
         - name: ESPRESSO_SHOT_QUANTITY
           valueFrom:
             configMapKeyRef:
-              name: prod-inv-config
+              name: inv-config
               key: ESPRESSO_SHOT_QUANTITY
         - name: MILK_FOAM_QUANTITY
           valueFrom:
             configMapKeyRef:
-              name: prod-inv-config
+              name: inv-config
               key: MILK_FOAM_QUANTITY
   selector:
     matchLabels:

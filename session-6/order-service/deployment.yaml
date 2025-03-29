@@ -18,7 +18,7 @@ spec:
         - name: INVENTORY_SERVICE_URL
           valueFrom:
             configMapKeyRef:
-              name: prod-ord-config
+              name: ord-config
               key: INVENTORY_SERVICE_URL
   selector:
     matchLabels:
