@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: order
+    spec:
+      containers:
+      - name: order
+        image: gopalbugad/order:latest
+        ports:
+        - containerPort: 8083
+        env:
+        - name: INVENTORY_SERVICE_URL
+          valueFrom:
+            configMapKeyRef:
+              name: prod-ord-config
+              key: INVENTORY_SERVICE_URL
+  selector:
+    matchLabels:
+      app: order
