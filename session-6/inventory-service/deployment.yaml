@@ -25,6 +25,13 @@ spec:
             configMapKeyRef:
               name: inv-config
               key: MILK_FOAM_QUANTITY
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "100Mi"
+          limits:
+            cpu: "100m"
+            memory: "1000Mi"
   selector:
     matchLabels:
       app: inventory

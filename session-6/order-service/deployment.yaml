@@ -20,6 +20,13 @@ spec:
             configMapKeyRef:
               name: ord-config
               key: INVENTORY_SERVICE_URL
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "100Mi"
+          limits:
+            cpu: "100m"
+            memory: "1000Mi"
   selector:
     matchLabels:
       app: order

@@ -5,8 +5,6 @@ metadata:
 spec:
   selector:
     app: inventory
-  type: NodePort
   ports:
   - port: 8082
     targetPort: 8082
-    nodePort: 30003
