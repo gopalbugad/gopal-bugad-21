@@ -1,5 +1,5 @@
 apiVersion: autoscaling/v2
-kind: HorizontalPodAutoScaler
+kind: HorizontalPodAutoscaler
 metadata:
   name: order-hpa
 spec:
@@ -16,4 +16,3 @@ spec:
       target:
         type: Utilization
         averageUtilization: 30
-     

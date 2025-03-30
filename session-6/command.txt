@@ -1,0 +1,15 @@
+# Ingress
+minikube addons enable ingress
+
+# Enabled metrics server for HPA
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+
+# port-forward for ingress controller service to access from local
+kubectl port-forward service/ingress-nginx-controller -n ingress-nginx 8080:80
+
+# Generated load on invenory and order service to test HPA
+1 - kubectl run -it load-generator --image=busybox --restart=Never -- /bin/sh
+  - "while true; do wget -q -O- http://192.168.49.2/inventory/stock; done"
+
+2 - kubectl run -it load-generator-order --image=busybox --restart=Never -- /bin/sh
+  - "while true; do wget -q -O- http://192.168.49.2/order/place?coffeeType=cappuccino&quantity=1; done"
